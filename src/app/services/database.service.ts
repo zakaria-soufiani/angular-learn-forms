@@ -11,10 +11,10 @@ import 'rxjs/add/operator/do';
 
    constructor(private http: Http) { }
 
-   createPerson(item, description) {
+   createPerson(lastName, firstName, email, comments, option) {
      let headers = new Headers({'Content-Type' : 'application/json'});
      let options = new RequestOptions({ headers: headers});
-     let INFO =  Object.assign(item, description);
+     let INFO =  Object.assign(lastName, firstName, email, comments, option);
      let body = JSON.stringify(INFO);
      return this.http.post(this.API_URL, body, options).map((res: Response) => res.json());
    }

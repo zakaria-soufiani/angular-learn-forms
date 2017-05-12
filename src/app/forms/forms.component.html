@@ -1,29 +1,31 @@
-<form class="form-horizontal" #f="ngForm"
-      (ngSubmit)="onSubmit(f)" novalidate>
+<form class="form-horizontal" #f="ngForm" novalidate>
   <fieldset>
     <legend>Input information</legend>
     <div class="form-group">
       <label class="col-lg-2 control-label">First Name</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="inputFirstName" placeholder="First Name" ngModel>
+        <input type="text" class="form-control" name="inputFirstName"
+               placeholder="First Name" [(ngModel)]="new_firstName" required>
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label">Last Name</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="inputLastName" placeholder="Last Name" ngModel>
+        <input type="text" class="form-control" name="inputLastName"
+               placeholder="Last Name" [(ngModel)]="new_lastName" required>
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label">Email</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="inputEmail" placeholder="Email" ngModel>
+        <input type="text" class="form-control" name="inputEmail"
+               placeholder="Email" [(ngModel)]="new_email" required>
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label">Comments</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" name="textArea" ngModel></textarea>
+        <textarea class="form-control" rows="3" name="textArea" [(ngModel)]="new_comments"></textarea>
       </div>
     </div>
     <div class="form-group">
@@ -31,13 +33,15 @@
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" ngModel>
+            <input type="radio" name="optionsRadios" id="optionsRadios1"
+                   value="option1" checked="" [(ngModel)]="new_options" required>
             Option one
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ngModel>
+            <input type="radio" name="optionsRadios" id="optionsRadios2"
+                   value="option2" [(ngModel)]="new_options" required>
             Option two
           </label>
         </div>
@@ -45,8 +49,10 @@
     </div>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-default" (click)="f.reset()">Cancel</button>
+        <button type="submit" class="btn btn-primary"
+                (click)="createPerson(new_lastName, new_firstName,
+                new_email, new_comments, new_options); f.reset()">Submit</button>
       </div>
     </div>
   </fieldset>

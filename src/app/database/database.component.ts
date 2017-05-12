@@ -9,8 +9,7 @@ import {DatabaseService} from "../services/database.service";
 })
 export class DatabaseComponent implements OnInit {
 
-  public person_name;
-  people = [];
+  public  people = [];
 
   constructor(private database: DatabaseService) { }
 
