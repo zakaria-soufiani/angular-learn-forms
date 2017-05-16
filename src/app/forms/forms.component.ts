@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
 import {DatabaseService} from "../services/database.service";
 import {Observable} from "rxjs";
 
@@ -17,22 +16,19 @@ export class FormsComponent implements OnInit {
   public new_comments;
   public new_options;
 
-
-  onSubmit(f: NgForm){
-  }
-
-
   constructor(private database: DatabaseService) { }
 
   ngOnInit() {
   }
 
   createPerson(lastName, firstName, email, comments, option) {
+
     let lastname  = { lastName : lastName };
     let firstname = { firstName: firstName };
     let Email     = { email    : email };
     let Comments  = { comments : comments };
     let Option    = { options  : option };
+
     this.database.createPerson(lastname, firstname, Email, Comments, Option).subscribe(
       data => {
         return true;
@@ -44,7 +40,4 @@ export class FormsComponent implements OnInit {
     );
 
   }
-
-
-
 }
